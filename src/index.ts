@@ -18,7 +18,7 @@ config();
 
 // Control whether deletion operations are enabled
 const allowDeleteTools = process.env.ALLOW_DELETE_TOOLS === 'true';
-console.info(`Delete operations are ${allowDeleteTools ? 'enabled' : 'disabled'}`);
+console.error(`Delete operations are ${allowDeleteTools ? 'enabled' : 'disabled'}`);
   
 // Initialize the MCP server
 const server = new McpServer({
@@ -54,7 +54,7 @@ getWorkspaceTools(server, api);
 async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  console.info("Smartsheet MCP Server running on stdio");
+  console.error("Smartsheet MCP Server running on stdio");
 }
 
 main().catch((error) => {

@@ -10,7 +10,7 @@ export function getUserTools(server: McpServer, api: SmartsheetAPI) {
         "Gets the current user's information",
         async () => {
         try {
-            console.info("Getting current user");
+            console.error("Getting current user");
             const user = await api.users.getCurrentUser();
             
             return {
@@ -45,7 +45,7 @@ export function getUserTools(server: McpServer, api: SmartsheetAPI) {
         },
         async ({ userId }) => {
         try {
-            console.info(`Getting user with ID: ${userId}`);
+            console.error(`Getting user with ID: ${userId}`);
             const user = await api.users.getUserById(userId);
             
             return {
@@ -76,7 +76,7 @@ export function getUserTools(server: McpServer, api: SmartsheetAPI) {
         "Lists all users",
         async () => {
             try {
-                console.info("Listing all users");
+                console.error("Listing all users");
                 const users = await api.users.listUsers();
                 
                 return {

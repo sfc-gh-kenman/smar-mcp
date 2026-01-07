@@ -73,7 +73,7 @@ export class SmartsheetAPI {
           });
         }
         
-        console.info(`API Request: ${method} ${url.toString()}`);
+        console.error(`API Request: ${method} ${url.toString()}`);
         
         const response = await axios({
           method,

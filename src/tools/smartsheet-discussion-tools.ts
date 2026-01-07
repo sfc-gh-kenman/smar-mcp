@@ -17,7 +17,7 @@ export function getDiscussionTools(server: McpServer, api: SmartsheetAPI) {
         },
         async ({ sheetId, include, pageSize, page, includeAll }) => {
             try {
-                console.info(`Getting discussions for sheet with ID: ${sheetId}`);
+                console.error(`Getting discussions for sheet with ID: ${sheetId}`);
                 const discussions = await api.discussions.getDiscussionsBySheetId(sheetId, include, pageSize, page, includeAll);
                 
                 return {
@@ -57,7 +57,7 @@ export function getDiscussionTools(server: McpServer, api: SmartsheetAPI) {
         },
         async ({ sheetId, rowId, include, pageSize, page, includeAll }) => {
             try {
-                console.info(`Getting discussions for row with ID: ${rowId} in sheet with ID: ${sheetId}`);
+                console.error(`Getting discussions for row with ID: ${rowId} in sheet with ID: ${sheetId}`);
                 const discussions = await api.discussions.getDiscussionsByRowId(sheetId, rowId, include, pageSize, page, includeAll);
                 
                 return {
@@ -93,7 +93,7 @@ export function getDiscussionTools(server: McpServer, api: SmartsheetAPI) {
         },
         async ({ sheetId, commentText }) => {
             try {
-                console.info(`Creating discussion on sheet with ID: ${sheetId}`);
+                console.error(`Creating discussion on sheet with ID: ${sheetId}`);
                 const discussion = await api.discussions.createSheetDiscussion(sheetId, commentText);
                 
                 return {
@@ -130,7 +130,7 @@ export function getDiscussionTools(server: McpServer, api: SmartsheetAPI) {
         },
         async ({ sheetId, rowId, commentText }) => {
             try {
-                console.info(`Creating discussion on row with ID: ${rowId} in sheet with ID: ${sheetId}`);
+                console.error(`Creating discussion on row with ID: ${rowId} in sheet with ID: ${sheetId}`);
                 const discussion = await api.discussions.createRowDiscussion(sheetId, rowId, commentText);
                 
                 return {

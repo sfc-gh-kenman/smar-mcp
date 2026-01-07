@@ -12,7 +12,7 @@ export function getSearchTools(server: McpServer, api: SmartsheetAPI) {
         },
         async ({ query }) => {
         try {
-            console.info(`Searching for sheets with query: ${query}`);
+            console.error(`Searching for sheets with query: ${query}`);
             const results = await api.search.searchSheets(query);
             
             return {
@@ -47,7 +47,7 @@ export function getSearchTools(server: McpServer, api: SmartsheetAPI) {
         },
         async ({ sheetId, query }) => {
         try {
-            console.info(`Searching for sheet with ID: ${sheetId} with query: ${query}`);
+            console.error(`Searching for sheet with ID: ${sheetId} with query: ${query}`);
             const results = await api.search.searchSheet(sheetId, query);
             
             return {
@@ -82,7 +82,7 @@ export function getSearchTools(server: McpServer, api: SmartsheetAPI) {
         },
         async ({ url, query }) => {
         try {
-            console.info(`Searching for sheet with URL: ${url} with query: ${query}`);
+            console.error(`Searching for sheet with URL: ${url} with query: ${query}`);
             const match = url.match(/\/sheets\/([^?\/]+)/);
             const directIdToken = match ? match[1] : null;
             if (!directIdToken) {
@@ -212,7 +212,7 @@ export function getSearchTools(server: McpServer, api: SmartsheetAPI) {
         },
         async ({ query }) => {
         try {
-            console.info(`Searching for folders with query: ${query}`);
+            console.error(`Searching for folders with query: ${query}`);
             const results = await api.search.searchFolders(query);
             
             return {
@@ -246,7 +246,7 @@ export function getSearchTools(server: McpServer, api: SmartsheetAPI) {
         },
         async ({ query }) => {
         try {
-            console.info(`Searching for workspaces with query: ${query}`);
+            console.error(`Searching for workspaces with query: ${query}`);
             const results = await api.search.searchWorkspaces(query);
             
             return {
@@ -280,7 +280,7 @@ export function getSearchTools(server: McpServer, api: SmartsheetAPI) {
         },
         async ({ query }) => {
         try {
-            console.info(`Searching for reports with query: ${query}`);
+            console.error(`Searching for reports with query: ${query}`);
             const results = await api.search.searchReports(query);
             
             return {
@@ -314,7 +314,7 @@ export function getSearchTools(server: McpServer, api: SmartsheetAPI) {
         },
         async ({ query }) => {
         try {
-            console.info(`Searching for dashboards with query: ${query}`);
+            console.error(`Searching for dashboards with query: ${query}`);
             const results = await api.search.searchDashboards(query);
             
             return {

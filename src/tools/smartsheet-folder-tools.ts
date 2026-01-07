@@ -13,7 +13,7 @@ export function getFolderTools(server: McpServer, api: SmartsheetAPI) {
         },
         async ({ folderId}) => {
         try {
-            console.info(`Getting folder with ID: ${folderId}`);
+            console.error(`Getting folder with ID: ${folderId}`);
             const folder = await api.folders.getFolder(folderId);
 
             return {
@@ -49,7 +49,7 @@ export function getFolderTools(server: McpServer, api: SmartsheetAPI) {
         },
         async ({ folderId, folderName }) => {
         try {
-            console.info(`Creating folder in workspace with ID: ${folderId}`);
+            console.error(`Creating folder in workspace with ID: ${folderId}`);
             const folder = await api.folders.createFolder(folderId, folderName);
 
             return {
@@ -85,7 +85,7 @@ export function getFolderTools(server: McpServer, api: SmartsheetAPI) {
         },
         async ({ workspaceId, folderName }) => {
         try {
-            console.info(`Creating folder in workspace with ID: ${workspaceId}`);
+            console.error(`Creating folder in workspace with ID: ${workspaceId}`);
             const folder = await api.workspaces.createWorkspaceFolder(workspaceId, folderName);
 
             return {

@@ -11,7 +11,7 @@ export function getWorkspaceTools(server: McpServer, api: SmartsheetAPI) {
         {},
         async ({ }) => {
           try {
-            console.info("Getting workspaces");
+            console.error("Getting workspaces");
             const workspace = await api.workspaces.getWorkspaces();
     
             return {
@@ -46,7 +46,7 @@ export function getWorkspaceTools(server: McpServer, api: SmartsheetAPI) {
         },
         async ({ workspaceId}) => {
           try {
-            console.info(`Getting workspace with ID: ${workspaceId}`);
+            console.error(`Getting workspace with ID: ${workspaceId}`);
             const workspace = await api.workspaces.getWorkspace(workspaceId);
     
             return {
@@ -81,7 +81,7 @@ export function getWorkspaceTools(server: McpServer, api: SmartsheetAPI) {
         },
         async ({ workspaceName }) => {
           try {
-            console.info(`Creating workspace: ${workspaceName}`);
+            console.error(`Creating workspace: ${workspaceName}`);
             const workspace = await api.workspaces.createWorkspace(workspaceName);
     
             return {
