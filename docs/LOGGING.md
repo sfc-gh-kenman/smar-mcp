@@ -16,7 +16,7 @@ The codebase uses a centralized logging utility located at `src/utils/logger.ts`
 
 ## Log Levels
 
-The logger provides six log levels aligned with MCP's logging specification:
+The logger provides six log levels that are exposed in the API:
 
 - `debug`: Detailed diagnostic information for development
 - `info`: General informational messages about normal operations
@@ -25,7 +25,7 @@ The logger provides six log levels aligned with MCP's logging specification:
 - `error`: Error messages for failures that need attention
 - `critical`: Critical failures requiring immediate attention
 
-Note: The MCP protocol supports additional levels (`alert`, `emergency`), but these are not currently exposed in the logger API.
+*Note: The MCP protocol specification includes additional log levels (`alert`, `emergency`) which are defined in the internal type but not currently exposed in the public logger API, as they are rarely needed for typical server logging.*
 
 ## Usage
 
@@ -136,7 +136,7 @@ When the server is running through Claude Desktop:
 1. Open Claude Desktop
 2. Open Developer Tools (View → Developer Tools)
 3. Click on the "MCP Logs" tab
-4. Filter by the "smartsheet" logger to see logs from this server
+4. In the logs panel, you can filter logs by typing "smartsheet" in the search/filter field to see only logs from this server
 
 ## Best Practices
 
