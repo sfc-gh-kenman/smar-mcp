@@ -25,6 +25,8 @@ The logger provides six log levels aligned with MCP's logging specification:
 - `error`: Error messages for failures that need attention
 - `critical`: Critical failures requiring immediate attention
 
+Note: The MCP protocol supports additional levels (`alert`, `emergency`), but these are not currently exposed in the logger API.
+
 ## Usage
 
 ### Importing the Logger
