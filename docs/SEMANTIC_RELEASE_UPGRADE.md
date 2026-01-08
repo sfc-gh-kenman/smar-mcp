@@ -101,7 +101,9 @@ The `.github/workflows/release.yml` workflow is **already configured correctly**
     cache: 'npm'
 ```
 
-Node.js 22 meets the minimum requirement of `^22.14.0`.
+Node.js 22 will use the latest available version in that major release (typically 22.x where x >= 14), which meets the minimum requirement of `^22.14.0`.
+
+**Note**: The workflow uses `actions/setup-node@v3`. While functional, consider updating to `@v4` in a future update for better security and maintenance.
 
 ## Impact Assessment
 
