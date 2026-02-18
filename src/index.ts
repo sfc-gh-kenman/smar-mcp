@@ -12,6 +12,7 @@ import { getSheetTools } from "./tools/smartsheet-sheet-tools.js";
 import { getUpdateRequestTools } from "./tools/smartsheet-update-request-tools.js";
 import { getUserTools } from "./tools/smartsheet-user-tools.js";
 import { getWorkspaceTools } from "./tools/smartsheet-workspace-tools.js";
+import { getReportTools } from "./tools/smartsheet-report-tools.js";
 
 // Load environment variables
 config();
@@ -49,6 +50,9 @@ getUserTools(server, api);
 
 // Tool: Workspace tools
 getWorkspaceTools(server, api); 
+
+// Tool: Report tools
+getReportTools(server, api); 
 
 // Start the server
 async function main() {

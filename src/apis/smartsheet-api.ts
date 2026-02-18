@@ -5,6 +5,7 @@ import { SmartsheetSearchAPI } from './smartsheet-search-api.js';
 import { SmartsheetSheetAPI } from './smartsheet-sheet-api.js';
 import { SmartsheetWorkspaceAPI } from './smartsheet-workspace-api.js';
 import { SmartsheetUserAPI } from './smartsheet-user-api.js';
+import { SmartsheetReportAPI } from './smartsheet-report-api.js';
 import packageJson from '../../package.json' with { type: 'json' };
 
 /**
@@ -19,6 +20,7 @@ export class SmartsheetAPI {
   public users: SmartsheetUserAPI;
   public search: SmartsheetSearchAPI;
   public discussions: SmartsheetDiscussionAPI;
+  public reports: SmartsheetReportAPI;
   /** 
    * Creates a new SmartsheetAPI instance
    * @param accessToken Smartsheet API access token
@@ -33,6 +35,7 @@ export class SmartsheetAPI {
     this.users = new SmartsheetUserAPI(this);
     this.search = new SmartsheetSearchAPI(this);
     this.discussions = new SmartsheetDiscussionAPI(this);
+    this.reports = new SmartsheetReportAPI(this);
     
     if (this.accessToken == '') {
       throw new Error('SMARTSHEET_API_KEY environment variable is not set');
