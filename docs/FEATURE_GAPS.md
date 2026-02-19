@@ -191,6 +191,51 @@ This document tracks missing functionality in the Smartsheet MCP compared to the
 
 ---
 
+## Resilience Enhancements
+
+These are not Smartsheet API gaps, but improvements to MCP server robustness.
+
+### Timeout-to-Pagination Fallback
+
+**Gap:** When an operation times out due to large result sets, there's no automatic fallback to paginated retrieval.
+
+**Current Behavior:**
+- `findByPermalink` is the ONLY function that auto-paginates internally (500 items/page)
+- Other operations accept pagination params but don't auto-paginate:
+  - `listDashboards` - accepts `pageSize`, `page`
+  - `getSheet` - accepts `pageSize`, `page`
+  - `getReport` - accepts `pageSize`, `page`
+  - `getDiscussionsBySheetId` / `getDiscussionsByRowId` - accept `pageSize`, `page`
+  - `getCellHistory` - accepts `pageSize`, `page`
+- If a non-paginated call times out, the user gets an error with no recovery
+
+**Desired Behavior:**
+1. Detect timeout errors (or large response indicators)
+2. Automatically retry with pagination parameters
+3. Aggregate paginated results transparently
+4. Return combined result to user
+
+**Example Flow:**
+```
+User calls: get_sheet(sheetId) 
+→ Times out (sheet has 50K rows)
+→ Fallback: get_sheet(sheetId, pageSize=1000, page=1)
+→ Iterate through pages
+→ Return aggregated result (or stream pages)
+```
+
+**Considerations:**
+- Memory limits for very large aggregations
+- May need to stream/chunk results instead of aggregating
+- Should log when fallback is triggered
+- Configurable timeout thresholds per operation type
+
+**Effort:** Medium
+
+**Priority:** Low (pagination is already implemented for dashboard search; this is defensive hardening)
+
+---
+
 ## Contributing
 
 To add a feature:
