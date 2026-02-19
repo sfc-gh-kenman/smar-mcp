@@ -63,16 +63,14 @@ This document tracks missing functionality in the Smartsheet MCP compared to the
 
 ### Priority 1: High Value / Common Use Cases
 
-#### 1. Dashboards (Sights)
-**Gap:** Can search dashboards but cannot read their contents.
+#### 1. ~~Dashboards (Sights)~~ ✅ Done
+**Implemented:** `get_dashboard`, `get_dashboard_by_url`, `list_dashboards`
 
 **API Endpoints:**
 - `GET /sights/{sightId}` - Get dashboard
 - `GET /sights` - List all dashboards
 
 **Value:** Dashboards aggregate data from multiple sheets. Reading them provides executive summaries without querying individual sheets.
-
-**Effort:** Low (similar pattern to reports)
 
 ---
 
@@ -182,7 +180,7 @@ This document tracks missing functionality in the Smartsheet MCP compared to the
 | Feature | Priority | Effort | Status |
 |---------|----------|--------|--------|
 | Reports | P1 | Low | 🔧 Done (fork) |
-| Dashboards | P1 | Low | ❌ |
+| Dashboards | P1 | Low | 🔧 Done (fork) |
 | Attachments | P1 | Medium | ❌ |
 | Sharing | P2 | Low | ❌ |
 | Row Comments | P2 | Low | ❌ |
