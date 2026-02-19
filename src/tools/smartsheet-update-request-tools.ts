@@ -19,9 +19,11 @@ export function getUpdateRequestTools(server: McpServer, api: SmartsheetAPI) {
         ccMe: z.boolean().optional().describe("Whether to CC the sender on the update request email"),
         sendTo: z.array(
           z.object({
-            email: z.string().describe("Email address of the recipient")
+            email: z.string().email().describe("Email address of the recipient")
           })
-        ).describe("Array of recipients for the update request"),
+        ).min(1, "At least one recipient is required")
+         .max(15, "Maximum 15 recipients per request")
+         .describe("Array of recipients for the update request"),
       },
       async ({ sheetId, rowIds, columnIds, includeAttachments, includeDiscussions, message, subject, ccMe, sendTo }) => {
         try {
